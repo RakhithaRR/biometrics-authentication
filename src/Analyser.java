@@ -4,10 +4,11 @@ import java.awt.*;
 import java.awt.event.KeyAdapter;
 import java.security.Key;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 
 public class Analyser extends KeyAdapter {
+    public int turn = 0;
     public String username;
     public String delimiter = "#";
     public int code;
@@ -16,18 +17,23 @@ public class Analyser extends KeyAdapter {
     public long end;
     public boolean pressed = false;
     public ArrayList<Long> pressTimes = new ArrayList<Long>();
-    public Analyser(String username){
+
+    public LinkedHashMap<Integer, Long> keyPressTimes = new LinkedHashMap<>();
+
+
+    public Analyser(String username) {
+
         this.username = username;
     }
 
-    public Analyser(){
+    public Analyser() {
 
     }
 
-    public void keyTyped(KeyEvent e){
-        if(!pressed){
+    public void keyTyped(KeyEvent e) {
+        if (!pressed) {
             String value = String.valueOf(e.getKeyChar());
-            if(value.matches("[a-zA-Z]+")){
+            if (value.matches("[a-zA-Z]+")) {
                 start = System.currentTimeMillis();
                 pressed = true;
             }
@@ -36,30 +42,61 @@ public class Analyser extends KeyAdapter {
     }
 
 
-    public void keyReleased(KeyEvent e){
+    public void keyReleased(KeyEvent e) {
         String value = String.valueOf(e.getKeyChar());
-        if(value.matches("[a-zA-Z]+")){
+        if (value.matches("[a-zA-Z]+")) {
             end = System.currentTimeMillis();
             time = end - start;
             code = e.getKeyCode();
+            this.keyPressTimes.put(code, time);
+//            if(turn == 1){
+//                this.keyPressTimes1.put(code,time);
+//            }
+//            else if(turn == 2){
+//                this.keyPressTimes2.put(code,time);
+//            }
+//            else{
+//                this.keyPressTimes3.put(code,time);
+//            }
 
-            this.pressTimes.add(time);
-            for(long i: pressTimes){
-                System.out.print(i+" ");
+            for (Long t : keyPressTimes.values()) {
+                System.out.print(t + " ");
             }
-            System.out.println("Time pressed: "+time+ " milliseconds");
+//            for(Long t : keyPressTimes2.values()){
+//                System.out.print(t + " ");
+//            }
+//            for(Long t : keyPressTimes3.values()){
+//                System.out.print(t + " ");
+//            }
+
+
+            System.out.println("Time pressed: " + time + " milliseconds");
             pressed = false;
         }
     }
 
+    public void setTurn(int turn) {
+        this.turn = turn;
+    }
+
+
     public String saveProfile(){
+
+
         String saveString = "";
+        for(Long t : keyPressTimes.values()){
+            pressTimes.add(t);
+        }
 
         for(Long time: this.pressTimes){
             saveString += delimiter + Long.toString(time);
         }
 
         return saveString;
+    }
+
+    public void clearStack(){
+        this.keyPressTimes.clear();
     }
 
 }

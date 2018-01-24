@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class LoginForm {
 
@@ -10,7 +11,7 @@ public class LoginForm {
         comp.addKeyListener(analyser);
 
         JLabel info = new JLabel("Enter the follwing text",JLabel.CENTER);
-        JLabel phrase = new JLabel("Hello World",JLabel.CENTER);
+        JLabel phrase = new JLabel("The quick brown fox jumps over lazy dog",JLabel.CENTER);
         JLabel login = new JLabel("Login",JLabel.CENTER);
         JLabel user = new JLabel("Enter the username",JLabel.CENTER);
 
@@ -36,7 +37,7 @@ public class LoginForm {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(phrase.getText().equals(comp.getText())){
-                    String master = ProfileSaver.getProfiles();
+                    ArrayList master = ProfileSaver.getProfiles();
                     String slave = analyser.saveProfile();
                     Examiner ex = new Examiner();
                     if(ex.match(master,slave)){
@@ -45,14 +46,18 @@ public class LoginForm {
                     }
                     else{
                         JOptionPane.showMessageDialog(submit,"Dynamics mismatch");
-                        f.dispose();
+                        comp.setText("");
+                        comp.requestFocus();
+                        analyser.clearStack();
                     }
 
 
 
                 }
                 else{
-                    JOptionPane.showMessageDialog(submit,"Error");
+                    JOptionPane.showMessageDialog(submit,"Phrase mismach! Please try again.");
+                    comp.setText("");
+                    comp.requestFocus();
                 }
             }
         });
