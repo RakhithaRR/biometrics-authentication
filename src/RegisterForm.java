@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,20 +29,23 @@ public class RegisterForm {
         JLabel info = new JLabel("Enter the follwing text",JLabel.CENTER);
         JLabel phrase = new JLabel("The quick brown fox jumps over lazy dog",JLabel.CENTER);
         JLabel user = new JLabel("Enter the username",JLabel.CENTER);
-        JLabel regiter = new JLabel("Sign Up",JLabel.CENTER);
+        JLabel register = new JLabel("Sign Up",JLabel.CENTER);
         JTextField username = new JTextField();
+
 
         JButton submit = new JButton("Register");
 
         Box box = Box.createVerticalBox();
         JPanel mainP = new JPanel();
+        mainP.setAlignmentX(Component.CENTER_ALIGNMENT);
         mainP.add(box);
 
         JFrame f = new JFrame("Register");
+        f.setResizable(false);
 
 
         f.add(mainP);
-        box.add(regiter);
+        box.add(register);
         box.add(user);
         box.add(username);
         box.add(info);
@@ -49,9 +53,10 @@ public class RegisterForm {
         box.add(comp);
         box.add(comp1);
         box.add(comp2);
-//        box.add(comp3);
         box.add(submit);
-        //f.add(comp);
+
+
+
         f.setSize(400,400);
         f.setLocationRelativeTo(null);
         f.setVisible(true);

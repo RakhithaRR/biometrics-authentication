@@ -9,7 +9,6 @@ import java.security.Key;
 public class Main {
 
     public static void main(String[] args) {
-//        MainPage page = new MainPage();
 
         if(ProfileSaver.firstTime()){
             java.awt.EventQueue.invokeLater(new Runnable() {

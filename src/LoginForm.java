@@ -22,13 +22,13 @@ public class LoginForm {
         mainP.add(box);
 
         JFrame f = new JFrame("Login");
+        f.setResizable(false);
 
         f.add(mainP);
         box.add(info);
         box.add(phrase);
         box.add(comp);
         box.add(submit);
-        //f.add(comp);
         f.setSize(400,400);
         f.setLocationRelativeTo(null);
         f.setVisible(true);

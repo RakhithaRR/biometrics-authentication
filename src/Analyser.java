@@ -49,26 +49,10 @@ public class Analyser extends KeyAdapter {
             time = end - start;
             code = e.getKeyCode();
             this.keyPressTimes.put(code, time);
-//            if(turn == 1){
-//                this.keyPressTimes1.put(code,time);
-//            }
-//            else if(turn == 2){
-//                this.keyPressTimes2.put(code,time);
-//            }
-//            else{
-//                this.keyPressTimes3.put(code,time);
-//            }
 
             for (Long t : keyPressTimes.values()) {
                 System.out.print(t + " ");
             }
-//            for(Long t : keyPressTimes2.values()){
-//                System.out.print(t + " ");
-//            }
-//            for(Long t : keyPressTimes3.values()){
-//                System.out.print(t + " ");
-//            }
-
 
             System.out.println("Time pressed: " + time + " milliseconds");
             pressed = false;

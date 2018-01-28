@@ -4,7 +4,6 @@ import java.util.DoubleSummaryStatistics;
 public class Examiner {
     public final double THRESHOLD = 0.65;
     public final int ERROR = 30;
-    String username;
     public double similarity;
     public ArrayList<Double> matchPercentages = new ArrayList<>();
     public int count = 0;

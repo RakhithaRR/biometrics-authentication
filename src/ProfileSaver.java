@@ -22,9 +22,7 @@ public class ProfileSaver {
     }
 
     public static ArrayList<String> getProfiles(){
-//        ArrayList profiles = new ArrayList();
         ArrayList<String> dataSet = new ArrayList<>();
-//        String profile = "";
         String value = "";
 
         try{
@@ -33,10 +31,8 @@ public class ProfileSaver {
 
             for(int i=0;i<3;i++){
                 value = br.readLine().trim();
-//                System.out.println(value);
                 dataSet.add(value);
             }
-//            profile = br.readLine().trim();
 
             br.close();
             fr.close();
