@@ -8,26 +8,19 @@ public class RegisterForm {
     public RegisterForm(){
         Analyser analyser = new Analyser();
         JTextField comp = new JTextField();
-//        analyser1.setTurn(1);
         comp.addKeyListener(analyser);
 
         Analyser analyser1 = new Analyser();
         JTextField comp1 = new JTextField();
-//        analyser1.setTurn(1);
         comp1.addKeyListener(analyser1);
 
         Analyser analyser2 = new Analyser();
         JTextField comp2 = new JTextField();
-//        analyser2.setTurn(2);
         comp2.addKeyListener(analyser2);
-//
-//        Analyser analyser3 = new Analyser();
-//        JTextField comp3 = new JTextField();
-//        analyser3.setTurn(3);
-//        comp1.addKeyListener(analyser3);
+
 
         JLabel info = new JLabel("Enter the follwing text",JLabel.CENTER);
-        JLabel phrase = new JLabel("The quick brown fox jumps over lazy dog",JLabel.CENTER);
+        JLabel phrase = new JLabel("'The quick brown fox jumps over lazy dog'",JLabel.CENTER);
         JLabel user = new JLabel("Enter the username",JLabel.CENTER);
         JLabel register = new JLabel("Sign Up",JLabel.CENTER);
         JTextField username = new JTextField();

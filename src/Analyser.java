@@ -8,7 +8,6 @@ import java.util.LinkedHashMap;
 
 
 public class Analyser extends KeyAdapter {
-    public int turn = 0;
     public String username;
     public String delimiter = "#";
     public int code;
@@ -58,11 +57,6 @@ public class Analyser extends KeyAdapter {
             pressed = false;
         }
     }
-
-    public void setTurn(int turn) {
-        this.turn = turn;
-    }
-
 
     public String saveProfile(){
 

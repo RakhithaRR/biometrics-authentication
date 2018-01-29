@@ -12,9 +12,6 @@ public class LoginForm {
 
         JLabel info = new JLabel("Enter the follwing text",JLabel.CENTER);
         JLabel phrase = new JLabel("The quick brown fox jumps over lazy dog",JLabel.CENTER);
-        JLabel login = new JLabel("Login",JLabel.CENTER);
-        JLabel user = new JLabel("Enter the username",JLabel.CENTER);
-
         JButton submit = new JButton("Login");
 
         Box box = Box.createVerticalBox();

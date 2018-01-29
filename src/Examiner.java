@@ -37,10 +37,8 @@ public class Examiner {
 
             masterPro = inputs.split("#");
             for(int i = 1; i<masterPro.length; i++){
-//                System.out.print(masterPro[i] + ",");
                 ms.add(masterPro[i]);
             }
-//            ms.remove(0);
             for(int i = 0; i<ms.size(); i++){
 
                 masterTimes.add(Long.parseLong(ms.get(i)));
